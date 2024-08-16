@@ -26,9 +26,11 @@
 
 #include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
+#include <common/ml_document/base_types.h>
 #include "edit_referencingDialog.h"
 
 // function to calculate rototranslaton and rototranslaton+scale matrices from series of points
+#include <vcg/space/point_matching.h>
 #include <vcg/space/point_matching.h>
 
 

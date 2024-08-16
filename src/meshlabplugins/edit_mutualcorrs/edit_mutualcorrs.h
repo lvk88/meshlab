@@ -24,13 +24,14 @@
 #ifndef EditMutualCorrsPlugin_H
 #define EditMutualCorrsPlugin_H
 
-#include <QObject>
-#include <common/plugins/interfaces/edit_plugin.h>
-#include "edit_mutualcorrsDialog.h"
 #include "alignset.h"
+#include "edit_mutualcorrsDialog.h"
+#include <common/plugins/interfaces/edit_plugin.h>
 
 // function to calculate rototranslaton and rototranslaton+scale matrices from series of points
 #include <vcg/space/point_matching.h>
+
+#include <QObject>
 
 
 class EditMutualCorrsPlugin : public QObject, public EditTool

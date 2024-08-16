@@ -25,8 +25,10 @@
 #ifndef EditAlignFactoryPLUGIN_H
 #define EditAlignFactoryPLUGIN_H
 
-#include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
+
+#include <QAction>
+#include <QObject>
 
 class EditAlignFactory : public QObject, public EditPlugin
 {

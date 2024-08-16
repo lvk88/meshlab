@@ -21,6 +21,7 @@
 *                                                                           *
 ****************************************************************************/
 
+#include <common/ml_document/mesh_document.h>
 #include "edit_align.h"
 #include <QGLWidget>
 #include "AlignPairDialog.h"

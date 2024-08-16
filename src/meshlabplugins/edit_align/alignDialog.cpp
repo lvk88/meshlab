@@ -28,11 +28,12 @@ $Log: stdpardialog.cpp,v $
 ****************************************************************************/
 
 #include <GL/glew.h>
-#include <QDockWidget>
+#include <common/ml_document/cmesh.h>
 #include "edit_align.h"
 
 #include "alignDialog.h"
 #include <meshlab/glarea.h>
+#include <QDockWidget>
 
 static QTextEdit *globalLogTextEdit = 0;
 

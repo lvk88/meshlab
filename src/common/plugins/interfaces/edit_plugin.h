@@ -28,10 +28,12 @@
 
 #include "meshlab_plugin_logger.h"
 #include "meshlab_plugin.h"
-#include "../../ml_document/mesh_document.h"
+//#include "../../ml_document/mesh_document.h"
 
 class MLRenderingData;
 class MLSceneGLSharedDataContext;
+class MeshModel;
+class MeshDocument;
 
 
 class GLArea;
@@ -55,13 +57,8 @@ public:
 
 	// Called when the user press the first time the button
 	virtual bool startEdit(MeshModel &/*m*/, GLArea * /*parent*/, MLSceneGLSharedDataContext* /*cont*/) { return true; }
-	virtual bool startEdit(MeshDocument &md, GLArea *parent, MLSceneGLSharedDataContext* cont)
-	{
-		//assert(NULL != md.mm());
-		if (md.mm() != NULL)
-			return (startEdit(*(md.mm()), parent, cont));
-		else return false;
-	}
+	virtual bool startEdit(MeshDocument &md, GLArea *parent, MLSceneGLSharedDataContext* cont);
+
 	// Called when the user press the second time the button
 	virtual void endEdit(MeshModel &/*m*/, GLArea * /*parent*/, MLSceneGLSharedDataContext* /*cont*/) {}
 	virtual void endEdit(MeshDocument &/*m*/, GLArea * /*parent*/, MLSceneGLSharedDataContext* /*cont*/) {}

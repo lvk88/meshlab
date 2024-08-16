@@ -25,8 +25,10 @@
 #ifndef QualityMapperFactoryPLUGIN_H
 #define QualityMapperFactoryPLUGIN_H
 
-#include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
+
+#include <QAction>
+#include <QObject>
 
 class QualityMapperFactory : public QObject, public EditPlugin
 {

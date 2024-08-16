@@ -24,6 +24,10 @@
 #define EDITPLUGIN_H
 
 #include <common/plugins/interfaces/edit_plugin.h>
+#include <common/ml_document/cmesh.h>
+#include <vcglib/vcg/space/point2.h>
+
+#include <GL/glew.h>
 
 class EditSelectPlugin : public QObject, public EditTool
 {

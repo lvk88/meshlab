@@ -26,6 +26,7 @@
 
 #include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
+#include <common/ml_document/cmesh.h>
 
 class EditPointPlugin : public QObject, public EditTool
 {

@@ -24,6 +24,9 @@
 #include "edit_manipulators_factory.h"
 #include "edit_manipulators.h"
 
+#include <QAction>
+#include <QIcon>
+
 EditManipulatorsFactory::EditManipulatorsFactory()
 {
 	editManipulators = new QAction(QIcon(":/images/icon_manipulators.png"),"Manipulators Tool", this);

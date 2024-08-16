@@ -22,6 +22,7 @@
 ****************************************************************************/
 
 #include "edit_align_factory.h"
+#include <common/ml_document/mesh_model.h>
 #include "edit_align.h"
 
 EditAlignFactory::EditAlignFactory()

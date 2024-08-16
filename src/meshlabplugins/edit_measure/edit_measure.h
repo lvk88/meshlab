@@ -33,6 +33,7 @@ $Log: editmeasure.h,v $
 #include <QList>
 
 #include <common/plugins/interfaces/edit_plugin.h>
+#include <vcglib/vcg/space/point2.h>
 #include <wrap/gui/rubberband.h>
 
 //--------------------------------------

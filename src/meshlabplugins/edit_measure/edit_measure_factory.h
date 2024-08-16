@@ -25,6 +25,7 @@
 #ifndef EditMeasureFactoryPLUGIN_H
 #define EditMeasureFactoryPLUGIN_H
 
+#include <QAction>
 #include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
 

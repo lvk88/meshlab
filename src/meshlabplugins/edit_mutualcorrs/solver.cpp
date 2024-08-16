@@ -1,5 +1,3 @@
-#include <QFile>
-#include <QTextStream>
 #include "edit_mutualcorrs.h"
 #include <vcg/math/shot.h>
 #include "newuoa.h"
@@ -7,6 +5,9 @@
 
 #include "solver.h"
 #include "mutual.h"
+
+#include <QFile>
+#include <QTextStream>
 
 //#include <wrap/tsai/tsaimethods.h>
 #include "levmarmethods.h"

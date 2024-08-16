@@ -25,6 +25,7 @@ History
 $Log: meshedit.cpp,v $
 ****************************************************************************/
 
+#include <common/ml_document/mesh_document.h>
 #include "edit_align.h"
 #include <common/GLExtensionsManager.h>
 #include <common_gui/rich_parameter/richparameterlistdialog.h>
@@ -507,6 +508,11 @@ void EditAlignPlugin::mouseReleaseEvent(QMouseEvent * e, MeshModel &/*m*/, GLAre
         trackball.MouseUp(e->x(),_gla->height()-e->y(), QT2VCG(e->button(), e->modifiers() ) );
         _gla->update();
     }
+}
+
+MeshTreem::MeshNode* EditAlignPlugin::currentNode()
+{
+       	return meshTree.find(_md->mm());
 }
 
 

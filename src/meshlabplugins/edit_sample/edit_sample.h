@@ -24,8 +24,11 @@
 #ifndef SAMPLEEDITPLUGIN_H
 #define SAMPLEEDITPLUGIN_H
 
-#include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
+#include <common/ml_document/cmesh.h>
+
+#include <QObject>
+#include <QFont>
 
 class SampleEditPlugin : public QObject, public EditTool
 {

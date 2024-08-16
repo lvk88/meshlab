@@ -1,21 +1,20 @@
 #ifndef ALIGNSET_H
 #define ALIGNSET_H
 
-
-#include <QString>
-#include <QImage>
-#include <QGLFramebufferObject>
-
 // local headers
 #include <common/ml_document/mesh_model.h>
 
 // VCG headers
 #include <vcg/math/shot.h>
 
-
 //#include "fbo.h"
 
 #include "pointCorrespondence.h"
+
+
+#include <QString>
+#include <QImage>
+#include <QGLFramebufferObject>
 
 class QGLFramebufferObject;
 class MLPluginGLContext;

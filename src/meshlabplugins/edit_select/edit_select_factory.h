@@ -25,6 +25,7 @@
 #ifndef EditSelectFactoryPLUGIN_H
 #define EditSelectFactoryPLUGIN_H
 
+#include <QAction>
 #include <common/plugins/interfaces/edit_plugin.h>
 
 class EditSelectFactory : public QObject, public EditPlugin

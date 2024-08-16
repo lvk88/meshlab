@@ -24,8 +24,10 @@
 #ifndef EditMutualCorrsPLUGIN_H
 #define EditMutualCorrsPLUGIN_H
 
-#include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
+
+#include <QAction>
+#include <QObject>
 
 class EditMutualCorrsFactory : public QObject, public EditPlugin
 {

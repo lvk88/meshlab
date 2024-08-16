@@ -23,11 +23,14 @@
 #ifndef EditManipulatorsPLUGIN_H
 #define EditManipulatorsPLUGIN_H
 
+#include <QFont>
 #include <QObject>
 #include <QStringList>
 #include <QList>
 
 #include <common/plugins/interfaces/edit_plugin.h>
+
+#include <common/ml_document/base_types.h>
 
 class EditManipulatorsPlugin : public QObject, public EditTool
 {

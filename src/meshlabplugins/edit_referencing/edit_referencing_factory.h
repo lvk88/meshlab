@@ -24,6 +24,7 @@
 #ifndef EditReferencingFactoryPLUGIN_H
 #define EditReferencingFactoryPLUGIN_H
 
+#include <QAction>
 #include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
 

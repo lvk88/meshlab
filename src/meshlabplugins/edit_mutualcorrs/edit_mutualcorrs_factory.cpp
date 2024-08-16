@@ -21,8 +21,8 @@
 *                                                                           *
 ****************************************************************************/
 
-#include "edit_mutualcorrs_factory.h"
 #include "edit_mutualcorrs.h"
+#include "edit_mutualcorrs_factory.h"
 
 EditMutualCorrsFactory::EditMutualCorrsFactory()
 {

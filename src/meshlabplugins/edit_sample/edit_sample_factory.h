@@ -25,6 +25,7 @@
 #ifndef SampleEditFactoryPLUGIN_H
 #define SampleEditFactoryPLUGIN_H
 
+#include <QAction>
 #include <QObject>
 #include <common/plugins/interfaces/edit_plugin.h>
 

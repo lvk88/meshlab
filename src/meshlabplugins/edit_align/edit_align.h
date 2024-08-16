@@ -73,7 +73,7 @@ public:
 	vcg::Trackball trackball;
 	GLArea* _gla;
 	MeshDocument* _md;
-    MeshTreem::MeshNode *currentNode() { return meshTree.find(_md->mm()); }
+        MeshTreem::MeshNode *currentNode();
 	vcg::AlignPair::Result *currentArc() const { return alignDialog->currentArc; }
 	MeshTreem meshTree;
 
