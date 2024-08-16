@@ -1,39 +1,42 @@
 /****************************************************************************
-* MeshLab                                                           o o     *
-* A versatile mesh processing toolbox                             o     o   *
-*                                                                _   O  _   *
-* Copyright(C) 2005-2020                                           \/)\/    *
-* Visual Computing Lab                                            /\/|      *
-* ISTI - Italian National Research Council                           |      *
-*                                                                    \      *
-* All rights reserved.                                                      *
-*                                                                           *
-* This program is free software; you can redistribute it and/or modify      *
-* it under the terms of the GNU General Public License as published by      *
-* the Free Software Foundation; either version 2 of the License, or         *
-* (at your option) any later version.                                       *
-*                                                                           *
-* This program is distributed in the hope that it will be useful,           *
-* but WITHOUT ANY WARRANTY; without even the implied warranty of            *
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *
-* GNU General Public License (http://www.gnu.org/licenses/gpl.txt)          *
-* for more details.                                                         *
-*                                                                           *
-****************************************************************************/
+ * MeshLab                                                           o o     *
+ * A versatile mesh processing toolbox                             o     o   *
+ *                                                                _   O  _   *
+ * Copyright(C) 2005-2020                                           \/)\/    *
+ * Visual Computing Lab                                            /\/|      *
+ * ISTI - Italian National Research Council                           |      *
+ *                                                                    \      *
+ * All rights reserved.                                                      *
+ *                                                                           *
+ * This program is free software; you can redistribute it and/or modify      *
+ * it under the terms of the GNU General Public License as published by      *
+ * the Free Software Foundation; either version 2 of the License, or         *
+ * (at your option) any later version.                                       *
+ *                                                                           *
+ * This program is distributed in the hope that it will be useful,           *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of            *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)          *
+ * for more details.                                                         *
+ *                                                                           *
+ ****************************************************************************/
 
 #ifndef MESHLAB_IO_PLUGIN_H
 #define MESHLAB_IO_PLUGIN_H
 
 #include <wrap/callback.h>
 
-#include "meshlab_plugin_logger.h"
-#include "meshlab_plugin.h"
-#include "../../utilities/file_format.h"
 #include "../../ml_document/raster_model.h"
+#include "../../utilities/file_format.h"
+#include "common/parameters/rich_parameter_list.h"
+#include "meshlab_plugin.h"
+#include "meshlab_plugin_logger.h"
 
 class MLRenderingData;
+class MeshModel;
+class RichParameterList;
 
-/** 
+/**
  * @brief The IOPlugin is the base class for meshes, images and projects loading
  * and saving.
  *
@@ -56,8 +59,8 @@ class MLRenderingData;
 class IOPlugin : virtual public MeshLabPlugin, virtual public MeshLabPluginLogger
 {
 public:
-	IOPlugin() : MeshLabPluginLogger() { }
-	virtual ~IOPlugin() { }
+	IOPlugin() : MeshLabPluginLogger() {}
+	virtual ~IOPlugin() {}
 
 	/***********************
 	 * Open Mesh Functions *
@@ -82,8 +85,7 @@ public:
 	 * load. If you do not need any additional processing simply do not override
 	 * this and ignore the parameterList in the open member function
 	 */
-	virtual RichParameterList initPreOpenParameter(
-			const QString& /*format*/) const
+	virtual RichParameterList initPreOpenParameter(const QString& /*format*/) const
 	{
 		return RichParameterList();
 	}
@@ -108,9 +110,9 @@ public:
 	 * @return
 	 */
 	virtual unsigned int numberMeshesContainedInFile(
-			const QString& format,
-			const QString& fileName,
-			const RichParameterList& preParams) const;
+		const QString&           format,
+		const QString&           fileName,
+		const RichParameterList& preParams) const;
 
 	/**
 	 * @brief The open function is called by the framework everytime a mesh is
@@ -134,12 +136,12 @@ public:
 	 * @param cb: standard callback for reporting progress in the loading
 	 */
 	virtual void open(
-			const QString &format,
-			const QString &fileName,
-			const std::list<MeshModel*>& meshModelList,
-			std::list<int>& maskList,
-			const RichParameterList & par,
-			vcg::CallBackPos *cb = nullptr);
+		const QString&               format,
+		const QString&               fileName,
+		const std::list<MeshModel*>& meshModelList,
+		std::list<int>&              maskList,
+		const RichParameterList&     par,
+		vcg::CallBackPos*            cb = nullptr);
 
 	/**
 	 * @brief The open function is called by the framework everytime a mesh is
@@ -157,12 +159,12 @@ public:
 	 * @param cb: standard callback for reporting progress in the loading
 	 */
 	virtual void open(
-			const QString &format,
-			const QString &fileName,
-			MeshModel &m,
-			int &mask,
-			const RichParameterList & par,
-			vcg::CallBackPos *cb = nullptr) = 0;
+		const QString&           format,
+		const QString&           fileName,
+		MeshModel&               m,
+		int&                     mask,
+		const RichParameterList& par,
+		vcg::CallBackPos*        cb = nullptr) = 0;
 
 	/***********************
 	 * Save Mesh Functions *
@@ -184,10 +186,8 @@ public:
 	 * It also tells to the framework which of these export capabilities are
 	 * set by default.
 	 */
-	virtual void exportMaskCapability(
-			const QString &format,
-			int& capability,
-			int& defaultBits) const = 0;
+	virtual void
+	exportMaskCapability(const QString& format, int& capability, int& defaultBits) const = 0;
 
 	/**
 	 * @brief The initSaveParameter function is called to initialize the list
@@ -197,9 +197,8 @@ public:
 	 * If you do not need any additional parameters, simply do not implement
 	 * this function.
 	 */
-	virtual RichParameterList initSaveParameter(
-			const QString& /*format*/,
-			const MeshModel& /*m*/) const
+	virtual RichParameterList
+	initSaveParameter(const QString& /*format*/, const MeshModel& /*m*/) const
 	{
 		return RichParameterList();
 	}
@@ -218,12 +217,13 @@ public:
 	 * @param cb: standard callback for reporting progress in the saving
 	 */
 	virtual void save(
-			const QString &format,
-			const QString &fileName,
-			MeshModel &m, /** NOTE: this is going to be const MeshModel&: try to use only const functions!! **/
-			const int mask,
-			const RichParameterList & par,
-			vcg::CallBackPos* cb = nullptr) = 0;
+		const QString& format,
+		const QString& fileName,
+		MeshModel&
+			m, /** NOTE: this is going to be const MeshModel&: try to use only const functions!! **/
+		const int                mask,
+		const RichParameterList& par,
+		vcg::CallBackPos*        cb = nullptr) = 0;
 
 	/************************
 	 * Open Image Functions *
@@ -234,10 +234,7 @@ public:
 	 * this function, returning the list of image formats supported by
 	 * your openImage function.
 	 */
-	virtual std::list<FileFormat> importImageFormats() const
-	{
-		return std::list<FileFormat>();
-	}
+	virtual std::list<FileFormat> importImageFormats() const { return std::list<FileFormat>(); }
 
 	/**
 	 * @brief The openImage function is called by the framework everytime an image
@@ -248,9 +245,9 @@ public:
 	 * @return the loaded QImage
 	 */
 	virtual QImage openImage(
-			const QString& format,
-			const QString& /*fileName*/,
-			vcg::CallBackPos* /*cb*/ = nullptr)
+		const QString& format,
+		const QString& /*fileName*/,
+		vcg::CallBackPos* /*cb*/ = nullptr)
 	{
 		wrongOpenFormat(format);
 		return QImage();
@@ -265,10 +262,7 @@ public:
 	 * this function, returning the list of image formats supported by
 	 * your saveImage function.
 	 */
-	virtual std::list<FileFormat> exportImageFormats() const
-	{
-		return std::list<FileFormat>();
-	}
+	virtual std::list<FileFormat> exportImageFormats() const { return std::list<FileFormat>(); }
 
 	/**
 	 * @brief The saveImage function is called by the framework everytime an image
@@ -279,11 +273,11 @@ public:
 	 * @param cb: standard callback for reporting progresso in the loading
 	 */
 	virtual void saveImage(
-			const QString& format,
-			const QString& /*fileName*/,
-			const QImage& /*image*/,
-			int /*quality*/ = -1,
-			vcg::CallBackPos* /*cb*/ = nullptr)
+		const QString& format,
+		const QString& /*fileName*/,
+		const QImage& /*image*/,
+		int /*quality*/          = -1,
+		vcg::CallBackPos* /*cb*/ = nullptr)
 	{
 		wrongSaveFormat(format);
 	}
@@ -297,10 +291,7 @@ public:
 	 * this function, returning the list of project formats supported by
 	 * your openProject function.
 	 */
-	virtual std::list<FileFormat> importProjectFormats() const
-	{
-		return std::list<FileFormat>();
-	}
+	virtual std::list<FileFormat> importProjectFormats() const { return std::list<FileFormat>(); }
 
 	/**
 	 * @brief some project file formats require the load of more than one file
@@ -316,9 +307,8 @@ public:
 	 *
 	 * @return
 	 */
-	virtual std::list<FileFormat> projectFileRequiresAdditionalFiles(
-			const QString& /*format*/,
-			const QString& /*filename*/)
+	virtual std::list<FileFormat>
+	projectFileRequiresAdditionalFiles(const QString& /*format*/, const QString& /*filename*/)
 	{
 		return std::list<FileFormat>();
 	};
@@ -351,11 +341,11 @@ public:
 	 * @return the list of MeshModel that have been loaded from the given project
 	 */
 	virtual std::vector<MeshModel*> openProject(
-			const QString& format,
-			const QStringList& /*filenames*/,
-			MeshDocument& /*md*/,
-			std::vector<MLRenderingData>& /*rendOpt*/,
-			vcg::CallBackPos* /*cb*/ = nullptr)
+		const QString& format,
+		const QStringList& /*filenames*/,
+		MeshDocument& /*md*/,
+		std::vector<MLRenderingData>& /*rendOpt*/,
+		vcg::CallBackPos* /*cb*/ = nullptr)
 	{
 		wrongOpenFormat(format);
 		return std::vector<MeshModel*>();
@@ -370,10 +360,7 @@ public:
 	 * this function, returning the list of project formats supported by
 	 * your saveProject function.
 	 */
-	virtual std::list<FileFormat> exportProjectFormats() const
-	{
-		return std::list<FileFormat>();
-	}
+	virtual std::list<FileFormat> exportProjectFormats() const { return std::list<FileFormat>(); }
 
 	/**
 	 * @brief The saveProject function is called by the framework everytime a
@@ -387,12 +374,12 @@ public:
 	 * @param cb: standard callback for reporting progress in the saving
 	 */
 	virtual void saveProject(
-			const QString& format,
-			const QString& /*fileName*/,
-			const MeshDocument& /*md*/,
-			bool /*onlyVisibleMeshes*/,
-			const std::vector<MLRenderingData>& /*rendOpt*/,
-			vcg::CallBackPos* /*cb*/ = nullptr)
+		const QString& format,
+		const QString& /*fileName*/,
+		const MeshDocument& /*md*/,
+		bool /*onlyVisibleMeshes*/,
+		const std::vector<MLRenderingData>& /*rendOpt*/,
+		vcg::CallBackPos* /*cb*/ = nullptr)
 	{
 		wrongSaveFormat(format);
 	}
