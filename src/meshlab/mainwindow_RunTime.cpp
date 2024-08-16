@@ -47,6 +47,7 @@
 #include <common/mlexception.h>
 #include <common/globals.h>
 #include <common/utilities/load_save.h>
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
 
 #include <common_gui/rich_parameter/richparameterlistdialog.h>
 

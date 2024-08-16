@@ -1,5 +1,7 @@
 #include "ml_selection_buffers.h"
 
+#include "vcglib/wrap/gl/deprecated_math.h"
+
 MLSelectionBuffers::MLSelectionBuffers(MeshModel& m,unsigned int primitivebatch)
 	:_lock(),_m(m),_primitivebatch(primitivebatch),_selmap(2)
 {

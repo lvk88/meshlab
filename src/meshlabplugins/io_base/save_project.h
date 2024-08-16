@@ -3,6 +3,8 @@
 
 #include <common/ml_document/mesh_document.h>
 
+#include <common/ml_shared_data_context/ml_shared_data_context.h>
+
 void saveMLP(
 		const QString& filename,
 		const MeshDocument& md,

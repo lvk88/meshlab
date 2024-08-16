@@ -37,6 +37,8 @@ Q_DECLARE_METATYPE(Matrix33m)
 Q_DECLARE_METATYPE(Matrix44m)
 Q_DECLARE_METATYPE(Eigen::VectorXd)
 
+class MLPluginGLContext;
+
 /**
  * @brief The FilterPlugin class provide the interface of the filter plugins.
  */

@@ -2,6 +2,7 @@
 #define LOAD_PROJECT_H
 
 #include <common/ml_document/mesh_model.h>
+#include <common/ml_shared_data_context/ml_shared_data_context.h>
 
 std::vector<MeshModel*> loadALN(
 		const QString& filename,

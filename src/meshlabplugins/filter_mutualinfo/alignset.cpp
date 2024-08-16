@@ -2,6 +2,9 @@
 
 #include <GL/glew.h>
 
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
+#include <common/ml_shared_data_context/ml_shared_data_context.h>
+
 #include <QGLContext>
 #include <QDomNode>
 #include <QDir>

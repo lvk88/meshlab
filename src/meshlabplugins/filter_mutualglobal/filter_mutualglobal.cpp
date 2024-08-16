@@ -23,6 +23,7 @@
 
 #include "filter_mutualglobal.h"
 #include <common/GLExtensionsManager.h>
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
 
 #include "alignset.h"
 

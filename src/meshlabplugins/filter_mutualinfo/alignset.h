@@ -18,6 +18,7 @@
 #include "pointCorrespondence.h"
 
 class QGLFramebufferObject;
+class MLPluginGLContext;
 
 class AlignSet {
   //typedef vcg::Camera<float> Camera;

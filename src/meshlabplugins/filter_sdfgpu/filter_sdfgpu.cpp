@@ -1,5 +1,6 @@
 #include "filter_sdfgpu.h"
 #include <common/GLExtensionsManager.h>
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
 
 #include <vcg/complex/complex.h>
 #include <vcg/complex/algorithms/intersection.h>

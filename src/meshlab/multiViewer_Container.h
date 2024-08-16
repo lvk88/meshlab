@@ -38,6 +38,7 @@
 class GLArea;
 class RichParameterList;
 class MultiViewer_Container;
+class MLSceneGLSharedDataContext;
 
 class Splitter : public QSplitter
 {

@@ -30,6 +30,9 @@
 #include "meshlab_plugin.h"
 #include "../../ml_document/mesh_document.h"
 
+class MLRenderingData;
+class MLSceneGLSharedDataContext;
+
 
 class GLArea;
 

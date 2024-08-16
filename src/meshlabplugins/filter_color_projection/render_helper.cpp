@@ -23,6 +23,8 @@
 
 #include <common/GLExtensionsManager.h>
 #include <common/ml_document/mesh_model.h>
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
+#include <common/ml_shared_data_context/ml_shared_data_context.h>
 
 #include <QObject>
 #include <QGLContext>

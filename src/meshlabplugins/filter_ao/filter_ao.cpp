@@ -22,6 +22,7 @@
 ****************************************************************************/
 
 #include <common/GLExtensionsManager.h>
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
 #include "filter_ao.h"
 #include <QGLFramebufferObject>
 #include <QElapsedTimer>

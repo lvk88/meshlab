@@ -23,6 +23,8 @@
 
 #include "filter_sample_gpu.h"
 #include <common/GLExtensionsManager.h>
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
+#include <common/ml_shared_data_context/ml_shared_data_context.h>
 #include <wrap/glw/glw.h>
 #include <QImage>
 

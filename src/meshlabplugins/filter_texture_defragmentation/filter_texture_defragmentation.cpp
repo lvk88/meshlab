@@ -33,6 +33,8 @@
 #include <vcg/complex/algorithms/update/normal.h>
 
 #include <common/GLExtensionsManager.h>
+#include <common/ml_shared_data_context/ml_plugin_gl_context.h>
+#include <common/ml_shared_data_context/ml_shared_data_context.h>
 
 #include "TextureDefragmentation/src/mesh.h"
 #include "TextureDefragmentation/src/texture_object.h"
